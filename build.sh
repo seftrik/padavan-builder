@@ -388,7 +388,7 @@ if [[ -f "post_build.sh" ]]; then
 fi
 
 echo "Checking firmware size...";
-partitions="padavan-ng/trunk/configs/boards/${CONFIG_VENDOR}/${CONFIG_FIRMWARE_PRODUCT_ID}/partitions.config";
+partitions="padavan-ng/trunk/configs/boards/NEWIFI/NEWIFI-D2/partitions.config";
 max_fw_size="$(cexec awk '/Firmware/ { getline; getline; sub(",", ""); print strtonum($2); }' "$partitions")";
 fw_size="$(stat -c %s "${BUILDER_OUTPUT:-${__dirname}}/${FW_FILE_NAME}")";
 if ((fw_size > max_fw_size)); then
